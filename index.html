@@ -14,23 +14,26 @@
          /* padding: 40px; */
          height: 30px;
          width: 30px;
-         background-color: red;
+         background-color: rgb(212, 112, 236);
          color: white;
          font-size: 20px;
          font-weight: 500;
          border: 0px;
         }
-        button:hover{
-            background-color: yellow;
+        img{
+            width: 100px;
         }
-        .ja{
-           /* position: fixed;  */
-        }
+        /* .ja{
+          padding-top: 100px;
+        } */
     </style>
 </head>
 <body>
     <div class="write">
         <h1>XOX GAME</h1>
+        <img src="user.png">
+        <p>user 1</p>
+        <p id="user1"></p>
     </div>
     <div class="ja">
         <button id="11" onclick="a1()" value="0"> </button>
@@ -42,7 +45,11 @@
         <button id="31" onclick="c1()" value="0"> </button>
         <button id="32" onclick="c2()" value="0"> </button>
         <button id="33" onclick="c3()" value="0"> </button>
-        <h1 id="res"></h1>
+    </div>
+    <div>
+        <p id="user2"></p>
+        <img src="user.png">
+        <p>user 2</p>
     </div>
     <script>
         let a=0;
@@ -52,10 +59,12 @@
             a++;
             if(a%2==0){
             document.getElementById("11").innerHTML="o";
+            document.getElementById("11").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("11").value="2";
         }
             else{
             document.getElementById("11").innerHTML="X";
+            document.getElementById("11").style.backgroundColor="red";
             document.getElementById("11").value="1";}
             console.log(document.getElementById("11").value);
             myteam(arr[0][0]=document.getElementById("11").value);
@@ -65,9 +74,11 @@
             a++;
             if(a%2==0){
             document.getElementById("12").innerHTML="o";
+            document.getElementById("12").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("12").value="2";}
             else{
             document.getElementById("12").innerHTML="X";
+            document.getElementById("12").style.backgroundColor="red";
             document.getElementById("12").value="1";}
             console.log(document.getElementById("12").value);
             myteam(arr[0][1]=document.getElementById("12").value);
@@ -77,9 +88,11 @@
             a++;
             if(a%2==0){
             document.getElementById("13").innerHTML="o";
+            document.getElementById("13").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("13").value="2";}
             else{
             document.getElementById("13").innerHTML="X";
+            document.getElementById("13").style.backgroundColor="red";
             document.getElementById("13").value="1";}
             console.log(document.getElementById("13").value);
              myteam(arr[0][2]=document.getElementById("13").value);
@@ -89,9 +102,11 @@
             a++;
             if(a%2==0){
             document.getElementById("21").innerHTML="o";
+            document.getElementById("21").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("21").value="2";}
             else{
             document.getElementById("21").innerHTML="X";
+            document.getElementById("21").style.backgroundColor="red";
             document.getElementById("21").value="1";}
             console.log(document.getElementById("21").value);
             myteam(arr[1][0]=document.getElementById("21").value);
@@ -101,9 +116,11 @@
             a++;
             if(a%2==0){
             document.getElementById("22").innerHTML="o";
+            document.getElementById("22").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("22").value="2";}
             else{
             document.getElementById("22").innerHTML="X";
+            document.getElementById("22").style.backgroundColor="red";
             document.getElementById("22").value="1";}
             console.log(document.getElementById("22").value);
             myteam(arr[1][1]=document.getElementById("22").value);
@@ -113,9 +130,11 @@
             a++;
             if(a%2==0){
             document.getElementById("23").innerHTML="o";
+            document.getElementById("23").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("23").value="2";}
             else{
             document.getElementById("23").innerHTML="X";
+            document.getElementById("23").style.backgroundColor="red";
             document.getElementById("23").value="1";}
             console.log(document.getElementById("23").value);
             myteam(arr[1][2]=document.getElementById("23").value);
@@ -125,9 +144,11 @@
             a++;
             if(a%2==0){
             document.getElementById("31").innerHTML="o";
+            document.getElementById("31").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("31").value="2";}
             else{
             document.getElementById("31").innerHTML="X";
+            document.getElementById("31").style.backgroundColor="red";
             document.getElementById("31").value="1";}
             console.log(document.getElementById("31").value);
             myteam(arr[2][0]=document.getElementById("31").value);
@@ -137,9 +158,11 @@
             a++;
             if(a%2==0){
             document.getElementById("32").innerHTML="o";
+            document.getElementById("32").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("32").value="2";}
             else{
             document.getElementById("32").innerHTML="X";
+            document.getElementById("32").style.backgroundColor="red";
             document.getElementById("32").value="1";}
             console.log(document.getElementById("32").value);
             myteam(arr[2][1]=document.getElementById("32").value);
@@ -149,40 +172,49 @@
             a++;
             if(a%2==0){
             document.getElementById("33").innerHTML="o";
+            document.getElementById("33").style.backgroundColor="rgb(51, 255, 0)";
             document.getElementById("33").value="2";}
             else{
             document.getElementById("33").innerHTML="X";
+            document.getElementById("33").style.backgroundColor="red";
             document.getElementById("33").value="1";}
             console.log(document.getElementById("33").value);
             myteam(arr[2][2]=document.getElementById("33").value);
         }}
         function myteam(){
+            let z=0;
             if(arr[0][0]==arr[1][1]&&arr[1][1]==arr[2][2]&&arr[2][2]!=0){
-                    // alert("you cross can win");
-                    document.getElementById("res").innerHTML="YOU CAN WIN BECAUCE THE CROSS IS SAME";
-                    setTimeout(()=>{
-                   location.reload();},5000);
+                    z=arr[0][0];
+                }
+                if(arr[0][2]==arr[1][1]&&arr[1][1]==arr[2][0]&&arr[2][0]!=0){
+                    z=arr[0][2];
                 }
                for(let i=0;i<3;i++){
                 if(arr[i][0]==arr[i][1]&&arr[i][1]==arr[i][2]&&arr[i][2]!=0){
-                    // alert("you column can win");
-                    document.getElementById("res").innerHTML="YOU CAN WIN BECAUCE THE ROW IS SAME";
-                    setTimeout(()=>{
-                   location.reload();},5000);
+                    z=arr[i][0];
                 }
                 if(arr[0][i]==arr[1][i]&&arr[1][i]==arr[2][i]&&arr[2][i]!=0){
-                    // alert("you row can win")
-                    document.getElementById("res").innerHTML="YOU CAN WIN BECAUCE THE COLUMN IS SAME";
-                    setTimeout(()=>{
-                   location.reload();},5000);
+                    z=arr[0][i];
                 }
                }
-               if(a==9){
-                document.getElementById("res").innerHTML="YOU CAN LOSS BECAUCE NOT SAME ANY COLUMN AND ROW";
+               if(a==9&&z==0){
+                document.getElementById("res").innerHTML="BOTH ARE SAME";
                     setTimeout(()=>{
                    location.reload();},5000);
                }
-        }
+               else if(z==2){
+                document.getElementById("user2").innerHTML="USER 2 CAN WIN THE MATCH";
+                    setTimeout(()=>{
+                   location.reload();},5000);
+               }
+               else if(z==1){
+                document.getElementById("user1").innerHTML="USER 1 CAN WIN THE MATCH";
+                    setTimeout(()=>{
+                   location.reload();},5000);
+               }
+               }
+
+        
     </script>
 </body>
 </html>
